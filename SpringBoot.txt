@@ -1,0 +1,23 @@
+Spring boot
+1	Tìm hiểu về Maven (công cụ quản lý và thiết lập tự động hệ thống phần mềm, quản lý các thư viện và cài đặt thư viện 
+hỗ trợ build và kiểm tra project)
+
+2	1. Tạo project maven với spring assistant 
+	2. Set và đổi port, set file tĩnh
+
+3.	1. Tìm hiểu về bean, khác biệt giữa bean và object
+	2. Cách spring boot phân biệt giữa bean và object thường (thêm @Component để đánh dấu bean)
+
+4.	Tìm hiểu Component Scan. Cách để container tìm trong 1 phạm vi tìm kiếm 
+(@ComponentScan({folderA},{folderB}) hoặc @SpringBootApplication(scanBasePackages = “folderA”) trong file mainApplication
+
+5	Tìm hiểu @Autowired
+
+6	Tìm hiểu về @Scope. Ví dụ để tạo get 2 bean khác nhau dùng @Scope(“prototype”) ở class đó nếu muốn các đối tượng trỏ 
+đến cùng 1 bộ nhớ thì dùng @Scope(“singletor”)
+
+7.	Độ ưu tiên của bean, khi container đang phân vân giữa các bean tìm được. Giải pháp dùng @Primary (thêm ngay class ưu
+ tiên) hoặc @Qualifier (định danh ở component ở các class và thêm annotation ở khai báo field ở class cha hoặc nếu thêm ở 
+setter/getter thì annotation được thêm ở param)
+
+8. 	Kiến trúc 3Layer
