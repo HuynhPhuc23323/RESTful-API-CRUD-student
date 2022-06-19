@@ -20,4 +20,28 @@ hỗ trợ build và kiểm tra project)
  tiên) hoặc @Qualifier (định danh ở component ở các class và thêm annotation ở khai báo field ở class cha hoặc nếu thêm ở 
 setter/getter thì annotation được thêm ở param)
 
-8. 	Kiến trúc 3Layer
+8. 	Kiến trúc 3Layer cũng có 3 lớp như mô hình MVC nhưng:
+		- Presentation layer (lớp giao tiếp với người dùng): controller (gửi request và tìm hàm để xử lý)
+		- Bussiness logic layer (lớp kiểm tra ràng buộc validation thông tin)
+		- Data access layer (lưu trữ và truy xuất các file trong hệ thống 
+vì vậy code sẽ tường minh hơn, dễ bảo trì, phát triển và tái sử dụng được sd thông qua các annotation (@controller PLayer, 
+@service BLLayer, @repository DALayer)
+
+
+9. Tạo RESTful API, tạo 2 class 
+	- Controller: xử lý các request của user từ đó gọi đến các hàm để xử lý trả về kết quả (@RestController để SBoot đánh 
+dấu class là controller). Giới thiệu @RequestMapping và RequestMethod để giới hạn phương thức
+	- User: chứa thông tin user. Giới thiệu các status thường gặp 200, 404, 500 (xử lý lỗi 404, 500 thì thay đổi return type
+thành ResponseEntity<?> và return sẽ thành (return ResponseEntity.status(HttpStatus.OK).body(user);
+Vd:
+@Entity User(id, name)
+@RestController
+Public class MyController{
+	@RequsetMapping(value="url", method = RequestMethod.GET)
+	public ResponseEntity<?> nameFunction(){
+		User user = new User(1,"nguyen van a");
+		return ResponseEntity.status(HttpStatus.OK).body(user); // có thể thay đổi phương thức OK thành các PT khác sẵn có
+	}
+}
+
+10, 11 ,12 Xây dựng RESTfulAPI quản lý user ( đang tìm hiểu về lỗi khi làm theo)
